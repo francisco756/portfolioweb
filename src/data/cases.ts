@@ -62,11 +62,11 @@ export const cases: CaseStudy[] = [
     did: [
       'Premium redesign built around large food photography and a bold type system.',
       'Hand-coded in HTML, CSS and TypeScript, with no CMS or page builder.',
-      'Menu sections for nigiris, rolls, sashimis and combos, with ordering calls to action throughout.',
+      'Scroll-driven sections that walk through each combo piece by piece, with ordering and WhatsApp contact always one tap away.',
       'A lightweight static build that is fast to load and simple to host.',
     ],
     stack: ['HTML', 'CSS', 'TypeScript'],
-    result: 'Live at nomadsushi.com.ar.',
+    result: 'Live at nomad-sushi.vercel.app.',
   },
   {
     slug: 'multiphone-chile',

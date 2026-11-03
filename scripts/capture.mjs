@@ -53,19 +53,22 @@ async function screenshot(browser, url, out, { width, height, scale, mobile, ful
     // Tall capture for case study pages, stitched from viewport shots taken while scrolling,
     // so scroll-triggered reveals and lazy images have fired in each tile.
     const tiles = []
+    let lastY = -Infinity
     for (let i = 0; i < FULL_TILES; i++) {
-      const y = await page.evaluate((top) => {
-        scrollTo({ top, behavior: 'instant' })
-        return scrollY
-      }, i * height)
-      if (i > 0 && y < i * height) break // reached the bottom
+      await page.evaluate((top) => scrollTo({ top, behavior: 'instant' }), i * height)
+      // Read the position after waiting: sites with smooth-scroll libraries are still easing toward it
       await page.waitForTimeout(1100)
+      const y = await page.evaluate(() => scrollY)
+      if (y <= lastY + 10) break // reached the bottom
+      lastY = y
       if (i === 1) {
-        // Fixed headers and chat bubbles would repeat in every tile
+        // Fixed headers and chat bubbles would repeat in every tile. Only small ones:
+        // sites with pinned scroll sections also use position: fixed for their content.
         await page.evaluate(() =>
           document.querySelectorAll('body *').forEach((el) => {
             const pos = getComputedStyle(el).position
-            if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden'
+            const small = el.getBoundingClientRect().height < innerHeight * 0.3
+            if ((pos === 'fixed' || pos === 'sticky') && small) el.style.visibility = 'hidden'
           }),
         )
       }

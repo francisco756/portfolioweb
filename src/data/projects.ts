@@ -99,7 +99,7 @@ export const projects: Project[] = [
     id: 'nomad-sushi',
     number: 2,
     name: 'Nomad Sushi',
-    url: 'https://nomadsushi.com.ar',
+    url: 'https://nomad-sushi.vercel.app',
     stop: 'AR',
     platform: 'HTML · CSS · TS',
     industry: 'Restaurant',
