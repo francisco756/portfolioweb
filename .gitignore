@@ -4,3 +4,6 @@ dist
 *.local
 scripts/.tmp
 .claude
+
+.vercel
+.env*.local
