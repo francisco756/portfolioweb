@@ -161,6 +161,45 @@ export const projects: Project[] = [
     builtAtBeing: true,
     featured: false,
   },
+  {
+    id: 'thorne',
+    number: 7,
+    name: 'Thorne Global Real Estate',
+    url: 'https://thorneglobalrealestate.com',
+    stop: 'AE',
+    platform: 'WP · Elementor',
+    industry: 'Real estate',
+    summary:
+      'Investor acquisition site for Dubai real estate, part of Poplavsky Group. A lead form asks for country and investment amount to qualify each contact.',
+    builtAtBeing: true,
+    featured: false,
+  },
+  {
+    id: 'korn-desarrolla',
+    number: 8,
+    name: 'Korn Desarrolla',
+    url: 'https://korndesarrolla.com.ar',
+    stop: 'AR',
+    platform: 'WP · Elementor',
+    industry: 'Real estate',
+    summary:
+      'Corporate website for a premium real estate developer, with a page for each building and a contact form for investors.',
+    builtAtBeing: false,
+    featured: false,
+  },
+  {
+    id: 'colegio-santa-teresa',
+    number: 9,
+    name: 'Colegio Santa Teresa de Jesús',
+    url: 'https://colegiostateresa.edu.ar',
+    stop: 'AR',
+    platform: 'WP · Elementor',
+    industry: 'Education',
+    summary:
+      'Website for a school founded in 1915, with sections for preschool, primary and secondary levels, its educational approach and enrollment.',
+    builtAtBeing: false,
+    featured: false,
+  },
 ]
 
 export const flightNumber = (p: Project) => `FD ${String(p.number).padStart(3, '0')}`

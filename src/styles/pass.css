@@ -382,3 +382,10 @@
     flex-wrap: wrap;
   }
 }
+
+/* Long domains push "Visit site" onto two lines on phones; the preview already shows the host */
+@media (max-width: 640px) {
+  .pass__host {
+    display: none;
+  }
+}
