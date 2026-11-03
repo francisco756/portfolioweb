@@ -19,6 +19,8 @@ export interface Stop {
   lat: number
   lng: number
   timeZone: string
+  /** ISO 3166 numeric code, so the globe can highlight the country */
+  iso: string
 }
 
 export interface Project {
@@ -49,10 +51,10 @@ export const HOME = {
 
 /** Journey order: Argentina → Chile → USA → Dubai → back to Buenos Aires */
 export const stops: Stop[] = [
-  { id: 'AR', country: 'Argentina', stamp: 'Argentina', city: 'Buenos Aires', code: 'BUE', lat: -34.6037, lng: -58.3816, timeZone: 'America/Argentina/Buenos_Aires' },
-  { id: 'CL', country: 'Chile', stamp: 'Chile', city: 'Santiago', code: 'SCL', lat: -33.4489, lng: -70.6693, timeZone: 'America/Santiago' },
-  { id: 'US', country: 'United States', stamp: 'USA', city: 'Miami', code: 'MIA', lat: 25.7617, lng: -80.1918, timeZone: 'America/New_York' },
-  { id: 'AE', country: 'United Arab Emirates', stamp: 'UAE', city: 'Dubai', code: 'DXB', lat: 25.2048, lng: 55.2708, timeZone: 'Asia/Dubai' },
+  { id: 'AR', country: 'Argentina', stamp: 'Argentina', city: 'Buenos Aires', code: 'BUE', lat: -34.6037, lng: -58.3816, timeZone: 'America/Argentina/Buenos_Aires', iso: '032' },
+  { id: 'CL', country: 'Chile', stamp: 'Chile', city: 'Santiago', code: 'SCL', lat: -33.4489, lng: -70.6693, timeZone: 'America/Santiago', iso: '152' },
+  { id: 'US', country: 'United States', stamp: 'USA', city: 'Miami', code: 'MIA', lat: 25.7617, lng: -80.1918, timeZone: 'America/New_York', iso: '840' },
+  { id: 'AE', country: 'United Arab Emirates', stamp: 'UAE', city: 'Dubai', code: 'DXB', lat: 25.2048, lng: 55.2708, timeZone: 'Asia/Dubai', iso: '784' },
 ]
 
 /** Flights between stops, in scroll order. The last one flies home. */
@@ -73,6 +75,8 @@ export const legs: Leg[] = [
 export const CONTACT = {
   email: 'franciscodesantis96@gmail.com',
   linkedin: 'https://www.linkedin.com/in/francisco-de-santis',
+  phone: '+54 11 3519-2444',
+  phoneHref: 'tel:+541135192444',
   cv: '/Francisco-De-Santis-CV.pdf',
 } as const
 

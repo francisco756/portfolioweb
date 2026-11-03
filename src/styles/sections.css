@@ -141,7 +141,7 @@
   font-size: clamp(36px, 4vw, 60px);
 }
 .pass__fields--contact {
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
 }
 .pass__fields--contact dd {
   text-transform: none;
@@ -169,34 +169,19 @@
 
 /* ── All flights button + departures board ─────── */
 .all-flights {
-  position: fixed;
-  right: var(--gutter);
-  bottom: 22px;
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  background: var(--board-2);
+  padding: 6px 10px;
+  background: none;
   border: 1px solid var(--amber);
   color: var(--amber);
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font: inherit;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: inherit;
+  text-transform: inherit;
   transition: background 0.2s, color 0.2s;
 }
 .all-flights:hover {
   background: var(--amber);
   color: var(--board);
-}
-.all-flights__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  animation: blink 1.6s steps(2) infinite;
 }
 
 .departures {
@@ -403,10 +388,8 @@
     align-items: flex-end;
     gap: 6px;
   }
-  .all-flights {
-    bottom: 14px;
-    right: 14px;
-    padding: 10px 13px;
+  .topbar__city {
+    display: none;
   }
   .contact__lead {
     font-size: 16px;

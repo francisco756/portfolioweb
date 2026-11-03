@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { barcode } from './components/boardingPass'
 import { initDepartures } from './components/departures'
-import { HOME, legs, stopById } from './data/projects'
+import { HOME, legs, stopById, stops } from './data/projects'
 import { bearing, greatCircle } from './lib/geo'
 import type { GlobeController } from './lib/globe'
 import { setupPage } from './lib/setup'
@@ -33,6 +33,9 @@ if (hashTarget) {
 }
 
 /* ── Hero: split-flap board ────────────────────── */
+// One country per stop, so the counter grows as destinations are added.
+document.querySelector<HTMLElement>('[data-countries]')!.dataset.flap = String(stops.length)
+
 async function playHero() {
   const [name, role, ...stats] = Array.from(document.querySelectorAll<HTMLElement>('.hero [data-flap]'))
   const flap = (el: HTMLElement, o = {}) => splitFlap(el, el.dataset.flap!, { reduced, ...o })

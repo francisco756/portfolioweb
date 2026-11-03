@@ -6,14 +6,14 @@
     <title>Francisco De Santis — Web Developer · WordPress, E-commerce & AI</title>
     <meta
       name="description"
-      content="Web developer in Buenos Aires with 5 years of experience and 50+ sites shipped for clients in Argentina, Brazil, Chile, Dubai and the US. WordPress, Shopify, WooCommerce, custom TypeScript and AI-assisted development."
+      content="Web developer in Buenos Aires with 5 years of experience and 50+ sites shipped for clients in Argentina, Chile, the US and Dubai. WordPress, Shopify, WooCommerce, custom TypeScript and AI-assisted development."
     />
     <meta name="theme-color" content="#0b0b0c" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Francisco De Santis — From Buenos Aires to the world" />
-    <meta property="og:description" content="Web developer · WordPress, e-commerce & AI-assisted development. 50+ sites · 5 countries · 5 years." />
+    <meta property="og:description" content="Web developer · WordPress, e-commerce & AI-assisted development. 50+ sites · 4 countries · 5 years." />
     <meta property="og:image" content="%VITE_SITE_URL%/og.jpg" />
     <meta property="og:url" content="%VITE_SITE_URL%/" />
     <link rel="canonical" href="%VITE_SITE_URL%/" />
@@ -39,7 +39,8 @@
         <span class="topbar__terminal">Terminal BUE</span>
       </a>
       <div class="topbar__meta">
-        <span>Buenos Aires</span>
+        <button class="all-flights" type="button" aria-haspopup="dialog" aria-controls="departures" data-cursor="Board">All flights</button>
+        <span class="topbar__city">Buenos Aires</span>
         <span class="topbar__clock" data-clock="America/Argentina/Buenos_Aires">--:--:--</span>
       </div>
     </header>
@@ -63,7 +64,7 @@
 
           <ul class="hero__stats" aria-label="At a glance">
             <li><span class="flap-line flap-line--stat" data-flap="50+">50+</span><span class="hero__stat-label">sites</span></li>
-            <li><span class="flap-line flap-line--stat" data-flap="5">5</span><span class="hero__stat-label">countries</span></li>
+            <li><span class="flap-line flap-line--stat" data-flap="4" data-countries>4</span><span class="hero__stat-label">countries</span></li>
             <li><span class="flap-line flap-line--stat" data-flap="5">5</span><span class="hero__stat-label">years</span></li>
           </ul>
 
@@ -159,6 +160,7 @@
             </div>
             <dl class="pass__fields pass__fields--contact">
               <div><dt>Email</dt><dd><a href="mailto:franciscodesantis96@gmail.com">franciscodesantis96@gmail.com</a></dd></div>
+              <div><dt>Phone · WhatsApp</dt><dd><a href="tel:+541135192444">+54 11 3519-2444</a></dd></div>
               <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/francisco-de-santis" target="_blank" rel="noopener">/in/francisco-de-santis</a></dd></div>
             </dl>
             <div class="pass__actions">
@@ -184,9 +186,6 @@
       </section>
     </main>
 
-    <button class="all-flights" type="button" aria-haspopup="dialog" aria-controls="departures" data-cursor="Board">
-      <span class="all-flights__dot"></span>All flights
-    </button>
     <dialog class="departures" id="departures" aria-label="All flights"></dialog>
 
     <script type="module" src="/src/main.ts"></script>

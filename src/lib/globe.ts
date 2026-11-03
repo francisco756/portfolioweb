@@ -2,8 +2,8 @@ import type { GlobeInstance } from 'globe.gl'
 import { HOME, legs, stopById, stops, type Leg } from '../data/projects'
 import { greatCircle, type LatLng } from './geo'
 
-/** ISO 3166 numeric codes of countries with clients — rendered brighter. */
-const WORKED = new Set(['032', '076', '152', '840', '784'])
+/** Countries on the journey are rendered brighter. */
+const WORKED = new Set(stops.map((s) => s.iso))
 const AMBER = '#ffb000'
 
 export interface GlobeController {
