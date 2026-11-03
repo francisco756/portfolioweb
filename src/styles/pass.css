@@ -4,7 +4,7 @@
   --stub-w: 150px;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr) var(--stub-w);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) var(--stub-w);
   color: var(--ink);
   background-color: var(--paper);
   background-image:
@@ -203,8 +203,11 @@
 .pass__preview {
   position: relative;
   margin: 24px 4px 24px 0;
-  align-self: stretch;
-  min-height: 260px;
+  align-self: center;
+  /* Same ratio as the 1280×800 recording and the 1440×900 screenshot, so nothing gets cropped.
+     content-box keeps the ratio on the screen area, not on the browser-chrome border. */
+  box-sizing: content-box;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #0f0f10;
   border: 6px solid var(--ink);
@@ -310,7 +313,7 @@
 }
 
 /* ── Narrow layouts ────────────────────────────── */
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   .pass {
     grid-template-columns: minmax(0, 1fr) var(--stub-w);
   }
@@ -318,8 +321,6 @@
     grid-column: 1;
     grid-row: 2;
     margin: 0 26px 26px;
-    min-height: 0;
-    aspect-ratio: 16 / 10;
   }
   .pass__stub {
     grid-column: 2;

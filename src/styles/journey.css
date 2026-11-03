@@ -69,7 +69,7 @@
 .stop {
   position: relative;
   padding: 12vh var(--gutter) 6vh;
-  max-width: calc(min(980px, 62vw) + 2 * var(--gutter));
+  max-width: calc(min(1060px, 67vw) + 2 * var(--gutter));
 }
 .stop__header {
   display: grid;
