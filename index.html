@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Francisco De Santis — Web Developer · WordPress, E-commerce & AI</title>
+    <meta
+      name="description"
+      content="Web developer in Buenos Aires with 5 years of experience and 50+ sites shipped for clients in Argentina, Brazil, Chile, Dubai and the US. WordPress, Shopify, WooCommerce, custom TypeScript and AI-assisted development."
+    />
+    <meta name="theme-color" content="#0b0b0c" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Francisco De Santis — From Buenos Aires to the world" />
+    <meta property="og:description" content="Web developer · WordPress, e-commerce & AI-assisted development. 50+ sites · 5 countries · 5 years." />
+    <meta property="og:image" content="%VITE_SITE_URL%/og.jpg" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="globe-stage" aria-hidden="true">
+      <div class="globe-stage__placeholder"></div>
+      <div class="globe-stage__canvas"></div>
+      <svg class="flight-plane" viewBox="0 0 24 24"><path d="M21 15.5v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V8.5l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-5z"/></svg>
+    </div>
+
+    <header class="topbar">
+      <a class="topbar__mark" href="#top" aria-label="Back to top">
+        <span class="topbar__logo">FDS</span>
+        <span class="topbar__terminal">Terminal BUE</span>
+      </a>
+      <div class="topbar__meta">
+        <span>Buenos Aires</span>
+        <span class="topbar__clock" data-clock="America/Argentina/Buenos_Aires">--:--:--</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ───────────── HERO ───────────── -->
+      <section class="hero" id="hero">
+        <div class="hero__board">
+          <p class="board-row">
+            <span class="board-row__label">Departures</span>
+            <span class="board-row__value">Buenos Aires · Argentina</span>
+            <span class="board-row__status"><i class="blink"></i>On time</span>
+          </p>
+
+          <h1 class="hero__title">
+            <span class="flap-line flap-line--name" data-flap="Francisco De Santis">Francisco De Santis</span>
+            <span class="flap-line flap-line--role" data-flap="Web Developer · WordPress, e-commerce & AI-assisted development"
+              >Web Developer · WordPress, e-commerce &amp; AI-assisted development</span
+            >
+          </h1>
+
+          <ul class="hero__stats" aria-label="At a glance">
+            <li><span class="flap-line flap-line--stat" data-flap="50+">50+</span><span class="hero__stat-label">sites</span></li>
+            <li><span class="flap-line flap-line--stat" data-flap="5">5</span><span class="hero__stat-label">countries</span></li>
+            <li><span class="flap-line flap-line--stat" data-flap="5">5</span><span class="hero__stat-label">years</span></li>
+          </ul>
+
+          <div class="hero__cta">
+            <a class="btn btn--amber" href="#stop-ar" data-scroll>
+              Start the journey <span aria-hidden="true">↓</span>
+            </a>
+            <a class="btn btn--ghost" href="#contact" data-scroll>Contact</a>
+          </div>
+        </div>
+
+        <p class="hero__routes" aria-hidden="true">
+          <span>BUE → SCL</span><span>BUE → MIA</span><span>BUE → DXB</span>
+        </p>
+      </section>
+
+      <!-- ───────────── JOURNEY (rendered from src/data/projects.ts) ───────────── -->
+      <div id="journey"></div>
+
+      <!-- ───────────── WHAT I DO ───────────── -->
+      <section class="services" id="services">
+        <p class="board-row">
+          <span class="board-row__label">Arrivals</span>
+          <span class="board-row__value">Buenos Aires · BUE</span>
+          <span class="board-row__status"><i class="blink"></i>Welcome home</span>
+        </p>
+        <h2 class="services__title">What I do</h2>
+        <ol class="services__board">
+          <li class="services__head" aria-hidden="true">
+            <span>Gate</span><span>Service</span><span>Details</span><span>Status</span>
+          </li>
+          <li class="svc">
+            <span class="svc__gate">01</span>
+            <span class="svc__name flap-line" data-flap="WordPress & Elementor">WordPress &amp; Elementor</span>
+            <span class="svc__detail">Figma to WordPress, landing pages, custom plugins and day-to-day care for 50+ sites</span>
+            <span class="svc__status">Available</span>
+          </li>
+          <li class="svc">
+            <span class="svc__gate">02</span>
+            <span class="svc__name flap-line" data-flap="E-commerce">E-commerce</span>
+            <span class="svc__detail">Shopify · WooCommerce · Tienda Nube</span>
+            <span class="svc__status">Available</span>
+          </li>
+          <li class="svc">
+            <span class="svc__gate">03</span>
+            <span class="svc__name flap-line" data-flap="Custom-coded websites">Custom-coded websites</span>
+            <span class="svc__detail">HTML · CSS · TypeScript, fast static builds</span>
+            <span class="svc__status">Available</span>
+          </li>
+          <li class="svc">
+            <span class="svc__gate">04</span>
+            <span class="svc__name flap-line" data-flap="AI solutions">AI solutions</span>
+            <span class="svc__detail">CRM with AI agents · custom WordPress plugins · AI-assisted development with Claude Code</span>
+            <span class="svc__status">Available</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ───────────── CONTACT ───────────── -->
+      <section class="contact" id="contact">
+        <p class="board-row">
+          <span class="board-row__label">Next destination</span>
+          <span class="board-row__value">Remote · Worldwide</span>
+        </p>
+        <h2 class="contact__title">Your company</h2>
+        <p class="contact__lead">
+          I'm looking for a remote role on a team that ships websites and products. Buenos Aires runs on GMT-3, so my working day
+          overlaps with US business hours.
+        </p>
+
+        <article class="pass pass--contact" aria-label="Contact boarding pass">
+          <div class="pass__main">
+            <header class="pass__head">
+              <span class="pass__airline">FDS Air · Boarding pass</span>
+              <span class="pass__tags"><span class="pass__tag pass__tag--priority">Now boarding</span></span>
+            </header>
+            <div class="pass__passenger">
+              <span class="pass__label">Passenger</span>
+              <h3 class="pass__name">Your company</h3>
+            </div>
+            <div class="pass__route">
+              <div class="pass__city">
+                <span class="pass__code">BUE</span>
+                <span class="pass__cityname">Buenos Aires</span>
+              </div>
+              <div class="pass__path">
+                <svg class="pass__plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V8.5l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-5z" transform="rotate(90 12 12)"/></svg>
+              </div>
+              <div class="pass__city pass__city--to">
+                <span class="pass__code">ANY</span>
+                <span class="pass__cityname">Remote</span>
+              </div>
+            </div>
+            <dl class="pass__fields pass__fields--contact">
+              <div><dt>Email</dt><dd><a href="mailto:franciscodesantis96@gmail.com">franciscodesantis96@gmail.com</a></dd></div>
+              <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/francisco-de-santis" target="_blank" rel="noopener">/in/francisco-de-santis</a></dd></div>
+            </dl>
+            <div class="pass__actions">
+              <a class="pass__visit" href="mailto:franciscodesantis96@gmail.com" data-cursor="Write">Email me <span aria-hidden="true">→</span></a>
+              <a class="pass__case" href="https://www.linkedin.com/in/francisco-de-santis" target="_blank" rel="noopener" data-cursor="Open">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a class="pass__case" href="/Francisco-De-Santis-CV.pdf" download data-cursor="Save">Download CV <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <aside class="pass__stub">
+            <span class="pass__label">Flight</span>
+            <span class="pass__stub-fn">FD 051</span>
+            <span class="pass__stub-route">BUE → ANY</span>
+            <span class="pass__label">Seat</span>
+            <span class="pass__stub-seat">01A</span>
+            <span class="pass__barcode-slot" data-barcode="your-company"></span>
+          </aside>
+        </article>
+
+        <footer class="site-footer">
+          <span>© <span data-year>2026</span> Francisco De Santis</span>
+          <span>Built with TypeScript, GSAP and Claude Code</span>
+        </footer>
+      </section>
+    </main>
+
+    <button class="all-flights" type="button" aria-haspopup="dialog" aria-controls="departures" data-cursor="Board">
+      <span class="all-flights__dot"></span>All flights
+    </button>
+    <dialog class="departures" id="departures" aria-label="All flights"></dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

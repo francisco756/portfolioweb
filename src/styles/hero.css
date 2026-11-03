@@ -1,0 +1,199 @@
+/* ── Globe stage ───────────────────────────────── */
+.globe-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateX(22vw);
+}
+.globe-stage__canvas,
+.globe-stage__placeholder {
+  position: absolute;
+  inset: 0;
+}
+.globe-stage__canvas {
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.globe-stage.is-ready .globe-stage__canvas {
+  opacity: 1;
+}
+/* Dotted disc shown while the globe chunk loads */
+.globe-stage__placeholder {
+  margin: auto;
+  width: min(62vh, 46vw);
+  height: min(62vh, 46vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 234, 216, 0.22) 1px, transparent 1.6px) 0 0 / 9px 9px;
+  mask: radial-gradient(circle, #000 60%, transparent 71%);
+  opacity: 0.5;
+  transition: opacity 1s ease;
+}
+.globe-stage.is-ready .globe-stage__placeholder {
+  opacity: 0;
+}
+
+.globe-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  transform: translate(10px, -50%);
+  text-shadow: 0 0 6px var(--board);
+  transition: opacity 0.4s;
+}
+.globe-label--home {
+  color: var(--board);
+  background: var(--amber);
+  padding: 1px 5px;
+  text-shadow: none;
+}
+
+.flight-plane {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  fill: var(--paper);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+  opacity: 0;
+}
+
+/* ── Hero ──────────────────────────────────────── */
+main {
+  position: relative;
+  z-index: 1;
+  /* stamps start scaled up before they land */
+  overflow-x: clip;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 110px var(--gutter) 60px;
+}
+
+.hero__board {
+  position: relative;
+  max-width: min(760px, 58vw);
+  display: grid;
+  gap: 30px;
+}
+
+.hero__title {
+  margin: 0;
+  display: grid;
+  gap: 22px;
+  font-weight: inherit;
+}
+
+.flap-line--name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 6.4vw, 104px);
+  text-transform: uppercase;
+}
+.flap-line--name .flap {
+  width: 0.6em;
+}
+
+.flap-line--role {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(13px, 1.25vw, 18px);
+  text-transform: uppercase;
+  max-width: 44em;
+}
+.flap-line--role .flap {
+  width: 0.92em;
+  margin-right: 0.1em;
+}
+.flap-line--role .flap--blank {
+  opacity: 0.3;
+}
+
+.hero__stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+}
+.hero__stats li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.flap-line--stat {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(28px, 2.6vw, 40px);
+}
+.flap-line--stat .flap {
+  width: 0.82em;
+}
+.hero__stat-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__routes {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 32px;
+  margin: 0;
+  display: flex;
+  gap: 22px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+/* ── Compact: globe lives inside the hero, smaller ── */
+.is-compact .globe-stage {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 62svh;
+  transform: none;
+}
+.is-compact .globe-stage__placeholder {
+  width: 70vw;
+  height: 70vw;
+}
+.is-compact .hero {
+  justify-content: flex-end;
+  padding-top: 48svh;
+}
+.is-compact .hero__board {
+  max-width: none;
+  gap: 24px;
+}
+.is-compact .hero__routes {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .topbar__terminal {
+    display: none;
+  }
+  .flap-line--role {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,384 @@
+/* ── Boarding pass ─────────────────────────────── */
+.pass {
+  --notch: 14px;
+  --stub-w: 150px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr) var(--stub-w);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    var(--noise),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.35), transparent 40%),
+    linear-gradient(0deg, rgba(120, 95, 50, 0.06), rgba(120, 95, 50, 0.06));
+  background-blend-mode: multiply, normal, normal;
+  background-size: 180px 180px, auto, auto;
+  border-radius: 6px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 24px 50px -18px rgba(0, 0, 0, 0.85),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+  /* Notches where the stub tears off */
+  mask:
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub-w)) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub-w)) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+}
+
+.pass__main {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  padding: 24px 26px 26px;
+}
+
+.pass__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--ink);
+}
+.pass__airline {
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.pass__tags {
+  display: flex;
+  gap: 6px;
+}
+.pass__tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  border: 1px solid var(--ink);
+  white-space: nowrap;
+}
+.pass__tag--priority {
+  background: var(--ink);
+  color: var(--amber);
+}
+
+.pass__label,
+.pass__fields dt {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.pass__name {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.pass__route {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pass__city {
+  display: grid;
+}
+.pass__city--to {
+  text-align: right;
+}
+.pass__code {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 0.9;
+}
+.pass__cityname {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.pass__path {
+  position: relative;
+  flex: 1;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(var(--ink), var(--ink)) center / 100% 1px no-repeat;
+  background-image: repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 8px);
+  background-size: 100% 1px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pass__plane {
+  width: 22px;
+  height: 22px;
+  padding: 0 4px;
+  fill: var(--ink);
+  background: var(--paper);
+  box-sizing: content-box;
+}
+.pass__domestic {
+  position: absolute;
+  top: 100%;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.pass__fields {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 0;
+  border-block: 1px dashed rgba(29, 27, 23, 0.45);
+}
+.pass__fields > div {
+  padding: 10px 20px 10px 0;
+}
+.pass__fields > div + div {
+  padding-left: 16px;
+  border-left: 1px dashed rgba(29, 27, 23, 0.45);
+}
+.pass__fields dd {
+  margin: 3px 0 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pass__summary {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #34302a;
+  max-width: 46ch;
+}
+
+.pass__visit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 11px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.pass__visit:hover {
+  background: var(--amber);
+  color: var(--ink);
+}
+.pass__host {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.6;
+  margin-left: 6px;
+}
+
+/* Site preview: screenshot, scroll video on hover */
+.pass__preview {
+  position: relative;
+  margin: 24px 4px 24px 0;
+  align-self: stretch;
+  min-height: 260px;
+  overflow: hidden;
+  background: #0f0f10;
+  border: 6px solid var(--ink);
+  border-top-width: 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.pass__preview::before {
+  /* browser chrome dots */
+  content: '';
+  position: absolute;
+  top: -13px;
+  left: 4px;
+  width: 30px;
+  height: 6px;
+  background: radial-gradient(circle 3px, var(--paper-2) 98%, transparent) 0 0 / 10px 6px repeat-x;
+  opacity: 0.6;
+}
+.pass__preview img,
+.pass__preview video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.pass__preview video {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.pass__preview.is-playing video {
+  opacity: 1;
+}
+.pass__preview img {
+  transition: transform 0.8s var(--ease-out);
+}
+.pass:hover .pass__preview img {
+  transform: scale(1.03);
+}
+.pass__window-label {
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--paper-2);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.pass__preview.is-missing img {
+  display: none;
+}
+.pass__preview.is-missing::after {
+  content: 'Capture pending · npm run capture';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Tear-off stub */
+.pass__stub {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 18px;
+  border-left: 2px dashed rgba(29, 27, 23, 0.4);
+  background: rgba(120, 95, 50, 0.07);
+}
+.pass__stub-fn,
+.pass__stub-seat {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.pass__stub-route {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: -6px 0 14px;
+}
+.pass__barcode {
+  margin-top: auto;
+  width: 100%;
+  height: 46px;
+  fill: var(--ink);
+}
+
+.pass--featured {
+  outline: 2px solid var(--amber);
+  outline-offset: 5px;
+}
+
+/* ── Narrow layouts ────────────────────────────── */
+@media (max-width: 1100px) {
+  .pass {
+    grid-template-columns: minmax(0, 1fr) var(--stub-w);
+  }
+  .pass__preview {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 26px 26px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .pass__stub {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .pass {
+    --stub-w: 0px;
+    grid-template-columns: minmax(0, 1fr);
+    mask: none;
+  }
+  .pass__main {
+    padding: 20px 18px;
+  }
+  .pass__preview {
+    margin: 0 18px 20px;
+  }
+  .pass__stub {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+    padding: 16px 18px;
+    border-left: 0;
+    border-top: 2px dashed rgba(29, 27, 23, 0.4);
+  }
+  .pass__stub-fn,
+  .pass__stub-seat {
+    font-size: 22px;
+    margin: 0;
+  }
+  .pass__stub-route {
+    margin: 0;
+  }
+  .pass__barcode {
+    flex-basis: 100%;
+    height: 34px;
+  }
+  .pass__fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .pass__fields > div {
+    padding-right: 8px;
+  }
+  .pass__fields > div + div {
+    padding-left: 10px;
+  }
+  .pass__fields dd {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+  .pass__code {
+    font-size: 38px;
+  }
+  .pass__head {
+    flex-wrap: wrap;
+  }
+}

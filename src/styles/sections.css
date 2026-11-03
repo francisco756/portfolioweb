@@ -1,0 +1,433 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── Boarding pass actions (journey + contact) ── */
+.pass__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pass__case {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.pass__case:hover {
+  background: var(--ink);
+  color: var(--amber);
+}
+
+/* ── What I do ─────────────────────────────────── */
+.services {
+  position: relative;
+  padding: 18vh var(--gutter) 12vh;
+  max-width: calc(min(1100px, 70vw) + 2 * var(--gutter));
+}
+.services__title {
+  margin: 14px 0 40px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(56px, 8vw, 128px);
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.services__board {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(11, 11, 12, 0.88);
+  border: 1px solid var(--line);
+}
+.services__head,
+.svc {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.25fr) minmax(0, 1fr) 110px;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 20px;
+}
+.services__head {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.svc + .svc {
+  border-top: 1px dashed var(--line);
+}
+.svc__gate {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--amber);
+}
+.svc__name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(14px, 1.35vw, 20px);
+  text-transform: uppercase;
+  color: transparent; /* revealed by the flaps */
+}
+.svc__name .flap {
+  width: 0.9em;
+  margin-right: 0.08em;
+}
+.svc__name .flap--blank {
+  opacity: 0.3;
+}
+.is-reduced .svc__name {
+  color: var(--amber);
+}
+.svc__detail {
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.8;
+}
+.svc__status {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* ── Contact ───────────────────────────────────── */
+.contact {
+  position: relative;
+  padding: 16vh var(--gutter) 40px;
+  background: linear-gradient(rgba(11, 11, 12, 0), var(--board) 30%);
+}
+.contact__title {
+  margin: 14px 0 22px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(72px, 13vw, 220px);
+  line-height: 0.82;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.contact__lead {
+  max-width: 52ch;
+  margin: 0 0 56px;
+  font-size: 18px;
+  color: var(--text);
+}
+.pass--contact {
+  max-width: 900px;
+  grid-template-columns: minmax(0, 1fr) var(--stub-w);
+}
+.pass--contact .pass__name {
+  font-size: clamp(36px, 4vw, 60px);
+}
+.pass__fields--contact {
+  grid-template-columns: repeat(2, auto);
+}
+.pass__fields--contact dd {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.pass__fields--contact a {
+  color: var(--ink);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 30px;
+  margin-top: 16vh;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── All flights button + departures board ─────── */
+.all-flights {
+  position: fixed;
+  right: var(--gutter);
+  bottom: 22px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--board-2);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+.all-flights:hover {
+  background: var(--amber);
+  color: var(--board);
+}
+.all-flights__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: blink 1.6s steps(2) infinite;
+}
+
+.departures {
+  width: min(1180px, calc(100vw - 2 * var(--gutter)));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--board);
+  color: var(--text);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.departures::backdrop {
+  background: rgba(5, 5, 6, 0.78);
+}
+.departures[open] {
+  animation: board-in 0.45s var(--ease-out);
+}
+.is-reduced .departures[open] {
+  animation: none;
+}
+@keyframes board-in {
+  from { opacity: 0; transform: translateY(24px); }
+}
+.departures__inner {
+  padding: 28px clamp(16px, 3vw, 36px) 32px;
+}
+.departures__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+.departures__title {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.departures__close {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--amber);
+  font-size: 18px;
+}
+.departures__close:hover {
+  border-color: var(--amber);
+}
+.departures__row {
+  display: grid;
+  grid-template-columns: 82px 110px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 130px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 4px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.departures__row--head {
+  border-top: 0;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.departures__fn {
+  color: var(--amber);
+  font-weight: 700;
+}
+.departures__to {
+  display: grid;
+  gap: 2px;
+}
+.departures__to .flap-line {
+  font-size: 22px;
+  font-weight: 700;
+}
+.departures__to .flap {
+  width: 0.82em;
+}
+.departures__to small {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+.departures__client {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+}
+.departures__remarks {
+  color: var(--amber);
+  font-size: 11px;
+}
+.departures__links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+.departures__links a {
+  color: var(--amber);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.departures__links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── Takeoff transition ────────────────────────── */
+.takeoff {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  background: var(--board);
+  overflow: hidden;
+}
+.takeoff__runway {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--amber) 0 30px, transparent 30px 60px);
+  opacity: 0.4;
+}
+.takeoff__plane {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: 64px;
+  height: 64px;
+  fill: var(--paper);
+}
+.takeoff__label {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* ── Narrow ────────────────────────────────────── */
+@media (max-width: 860px) {
+  .services {
+    max-width: none;
+  }
+  .services__head {
+    display: none;
+  }
+  .svc {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 6px 14px;
+  }
+  .svc__gate {
+    grid-row: span 3;
+    align-self: start;
+    font-size: 28px;
+  }
+  .svc__status {
+    justify-self: start;
+  }
+  .departures__row--head {
+    display: none;
+  }
+  .departures__row {
+    grid-template-columns: 70px minmax(0, 1fr) auto;
+    grid-template-areas:
+      'fn client links'
+      'to gate class';
+    gap: 6px 12px;
+    padding: 16px 0;
+  }
+  .departures__row > :nth-child(1) { grid-area: fn; }
+  .departures__row > :nth-child(2) { grid-area: to; }
+  .departures__row > :nth-child(3) { grid-area: client; }
+  .departures__row > :nth-child(4) { grid-area: gate; font-size: 11px; }
+  .departures__row > :nth-child(5) { grid-area: class; font-size: 11px; }
+  .departures__row > :nth-child(6) { display: none; }
+  .departures__row > :nth-child(7) { grid-area: links; }
+  .departures__client {
+    font-size: 19px;
+  }
+  .departures__links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .all-flights {
+    bottom: 14px;
+    right: 14px;
+    padding: 10px 13px;
+  }
+  .contact__lead {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pass--contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pass__fields--contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pass__fields--contact > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px dashed rgba(29, 27, 23, 0.45);
+  }
+}
+@media (max-width: 640px) {
+  .pass--contact .pass__stub {
+    grid-row: 2;
+  }
+}

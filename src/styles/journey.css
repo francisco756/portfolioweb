@@ -1,0 +1,168 @@
+/* ── Flight leg (camera follows the arc) ───────── */
+.flight {
+  position: relative;
+  height: 260vh;
+}
+.flight__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--gutter) 9vh;
+}
+.flight__board {
+  width: min(460px, 100%);
+  display: grid;
+  gap: 22px;
+  padding: 24px;
+  background: rgba(11, 11, 12, 0.82);
+  border: 1px solid var(--line);
+  backdrop-filter: none;
+}
+.flight__route {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.flight__code {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 1;
+  color: var(--amber);
+}
+.flight__track {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px);
+}
+.flight__progress {
+  position: absolute;
+  inset: 0;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.flight__facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+.flight__facts dt {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.flight__facts dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Stop (country) ────────────────────────────── */
+.stop {
+  position: relative;
+  padding: 12vh var(--gutter) 6vh;
+  max-width: calc(min(980px, 62vw) + 2 * var(--gutter));
+}
+.stop__header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+.stop__country {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(84px, 13vw, 210px);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.stop__count {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stop__passes {
+  display: grid;
+  gap: 40px;
+}
+/* The stamp lands on the last boarding pass, over the tear line */
+.stop__stamp {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 70px 0 0;
+  margin-top: -190px;
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Passport stamp */
+.stamp {
+  width: clamp(170px, 18vw, 230px);
+  height: auto;
+  opacity: 0;
+  transform: rotate(-12deg);
+}
+.stamp__stroke {
+  fill: none;
+  stroke: var(--stamp);
+}
+.stamp__ring {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  fill: var(--stamp);
+}
+.stamp__country {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 40px;
+  fill: var(--stamp);
+}
+.stamp__date {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  fill: var(--stamp);
+}
+
+/* ── Compact: plain vertical journey ───────────── */
+.is-compact .flight {
+  height: auto;
+}
+.is-compact .flight__sticky {
+  position: static;
+  height: auto;
+  padding: 10vh var(--gutter) 0;
+}
+.is-compact .flight__progress {
+  transform: scaleX(1);
+}
+.is-compact .stop {
+  max-width: none;
+}
+.is-compact .stop__stamp {
+  justify-content: center;
+  margin-top: 0;
+  padding: 32px 0 0;
+}
+
+.stop__country--long {
+  font-size: clamp(56px, 7.5vw, 128px);
+  line-height: 0.88;
+}

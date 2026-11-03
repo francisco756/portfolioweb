@@ -1,0 +1,312 @@
+/* ── Case study page ───────────────────────────── */
+.case {
+  padding: 130px var(--gutter) 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.case-hero {
+  display: grid;
+  gap: 22px;
+  margin-bottom: 64px;
+}
+.case-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(72px, 13vw, 210px);
+  line-height: 0.82;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.case-hero__headline {
+  margin: 0;
+  max-width: 28ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1.05;
+  color: var(--amber);
+}
+.case-hero__meta {
+  margin: 10px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+.case-hero__meta > div {
+  padding: 14px 16px 14px 0;
+}
+.case-hero__meta > div + div {
+  padding-left: 16px;
+  border-left: 1px dashed var(--line);
+}
+.case-hero__meta dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-hero__meta dd {
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.case-hero__meta a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+/* Big screenshots: desktop browser + phone */
+.case-shots {
+  position: relative;
+  margin: 0 0 90px;
+  padding-right: clamp(40px, 10vw, 150px);
+}
+.case-shots__desktop {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--board-2);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.9);
+}
+.case-shots__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.case-shots__bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.case-shots__bar span {
+  margin-left: 12px;
+}
+.case-shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.case-shots__mobile {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: clamp(130px, 20vw, 270px);
+  padding: 8px;
+  border-radius: 28px;
+  background: #050505;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
+}
+.case-shots__mobile img {
+  border-radius: 20px;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  object-position: top;
+}
+
+.case-intro {
+  max-width: 34ch;
+  margin: 0 0 80px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 50px);
+  line-height: 1.04;
+  color: var(--paper);
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.case-block {
+  padding: 34px 40px 44px 0;
+  border-bottom: 1px solid var(--line);
+}
+.case-block:nth-child(even) {
+  padding-left: 40px;
+  padding-right: 0;
+  border-left: 1px dashed var(--line);
+}
+.case-block__n {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amber);
+}
+.case-block__title {
+  margin: 4px 0 18px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 3vw, 46px);
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.case-block__body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.case-block__body p {
+  margin: 0 0 22px;
+  max-width: 54ch;
+}
+.case-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.case-list li {
+  position: relative;
+  padding-left: 26px;
+}
+.case-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-family: var(--font-mono);
+}
+/* Stack as luggage tags */
+.case-tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.case-tags li {
+  position: relative;
+  padding: 8px 14px 8px 24px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%);
+}
+.case-tags li::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--board);
+}
+
+.case-full {
+  margin: 100px 0 0;
+}
+.case-full__caption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-full__frame {
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--amber) var(--board-2);
+}
+.case-full__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-next {
+  margin-top: 110px;
+  border-top: 1px solid var(--line);
+}
+.case-next a {
+  display: grid;
+  gap: 6px;
+  padding: 40px 0;
+  text-decoration: none;
+}
+.case-next__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.case-next__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 130px);
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--paper);
+  transition: color 0.25s;
+}
+.case-next a:hover .case-next__name {
+  color: var(--amber);
+}
+.case .site-footer {
+  margin-top: 30px;
+}
+.case .site-footer a {
+  color: var(--amber);
+}
+
+@media (max-width: 860px) {
+  .case {
+    padding-top: 100px;
+  }
+  .case-hero__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .case-hero__meta > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .case-hero__meta > div:nth-child(n + 3) {
+    border-top: 1px dashed var(--line);
+  }
+  .case-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .case-block,
+  .case-block:nth-child(even) {
+    padding: 28px 0 34px;
+    border-left: 0;
+  }
+  .case-shots {
+    padding-right: 70px;
+  }
+}
+
+body[data-case] .topbar__terminal {
+  display: inline;
+}
