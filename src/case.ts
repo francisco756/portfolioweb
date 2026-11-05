@@ -91,7 +91,7 @@ document.querySelector<HTMLElement>('#case')!.innerHTML = `
 
   <footer class="site-footer">
     <span><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></span>
-    <span><a href="${CONTACT.phoneHref}">${CONTACT.phone}</a> · <a href="${CONTACT.linkedin}" target="_blank" rel="noopener">LinkedIn</a> · <a href="${CONTACT.cv}" download>CV</a></span>
+    <span><a href="${CONTACT.whatsapp}" target="_blank" rel="noopener">WhatsApp ${CONTACT.phone}</a> · <a href="${CONTACT.linkedin}" target="_blank" rel="noopener">LinkedIn</a> · <a href="${CONTACT.cv}" download>CV</a></span>
   </footer>
 </article>`
 

@@ -296,66 +296,65 @@ a {
 .has-custom-cursor button {
   cursor: none;
 }
+/* Dot = exact pointer, always visible. Ring = outline only, never filled,
+   so it doesn't hide what's under it. Labels sit beside the pointer, not on it. */
 .cursor-dot,
-.cursor-ring {
+.cursor-ring,
+.cursor-label {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   pointer-events: none;
-  border-radius: 50%;
   transition: opacity 0.2s;
 }
 .cursor-dot {
   width: 6px;
   height: 6px;
   margin: -3px 0 0 -3px;
+  border-radius: 50%;
   background: var(--amber);
+  /* dark rim keeps it visible on the cream boarding passes */
+  box-shadow: 0 0 0 1px rgba(11, 11, 12, 0.55);
 }
 .cursor-ring {
-  width: 34px;
-  height: 34px;
-  margin: -17px 0 0 -17px;
-  border: 1px solid rgba(255, 176, 0, 0.6);
-  display: grid;
-  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
 }
 .cursor-ring::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  transition: transform 0.35s var(--ease-out), background 0.35s;
-}
-.cursor-ring.is-hover {
-  border-color: transparent;
+  border: 1px solid rgba(255, 176, 0, 0.55);
+  transition: transform 0.3s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
 }
 .cursor-ring.is-hover::before {
-  transform: scale(2.3);
-  background: var(--amber);
-  mix-blend-mode: difference;
-}
-.cursor-dot.is-hover {
-  opacity: 0;
+  transform: scale(1.45);
+  border: 1.5px solid var(--amber);
+  box-shadow:
+    0 0 0 1px rgba(11, 11, 12, 0.35),
+    inset 0 0 0 1px rgba(11, 11, 12, 0.35);
 }
 .cursor-label {
-  position: relative;
+  margin: 20px 0 0 20px;
+  padding: 4px 7px;
+  background: var(--amber);
+  color: var(--board);
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--board);
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.2s;
 }
-.cursor-ring.is-hover .cursor-label:not(:empty) {
+.cursor-label.is-visible {
   opacity: 1;
 }
-.cursor-ring.is-hover:has(.cursor-label:not(:empty))::before {
-  mix-blend-mode: normal;
-}
 .cursor-hidden .cursor-dot,
-.cursor-hidden .cursor-ring {
+.cursor-hidden .cursor-ring,
+.cursor-hidden .cursor-label {
   opacity: 0;
 }

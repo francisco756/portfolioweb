@@ -10,11 +10,15 @@
  *   npm run capture -- multiphone-chile   # only the listed ids
  *
  * First run needs the browser: npx playwright install chromium
+ *
+ * Afterwards it rewrites src/data/media-versions.json with a content hash per project.
+ * The site appends it to media URLs, so browsers fetch a new capture instead of a cached one.
  */
 import { chromium } from 'playwright'
 import ffmpegPath from 'ffmpeg-static'
 import { execFileSync } from 'node:child_process'
-import { mkdirSync, rmSync } from 'node:fs'
+import { createHash } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { projects } from '../src/data/projects.ts'
@@ -24,8 +28,10 @@ const tmp = join(root, 'scripts', '.tmp')
 const SCROLL_SECONDS = 8
 const FULL_TILES = 5
 
-const only = process.argv.slice(2)
-const list = only.length ? projects.filter((p) => only.includes(p.id)) : projects
+// `--versions` only refreshes media-versions.json, without capturing anything
+const versionsOnly = process.argv.includes('--versions')
+const only = process.argv.slice(2).filter((a) => !a.startsWith('--'))
+const list = versionsOnly ? [] : only.length ? projects.filter((p) => only.includes(p.id)) : projects
 
 const ffmpeg = (...args) => execFileSync(ffmpegPath, ['-y', '-loglevel', 'error', ...args])
 
@@ -142,3 +148,14 @@ for (const p of list) {
 
 await browser.close()
 rmSync(tmp, { recursive: true, force: true })
+
+// Cache-busting versions for every project's media
+const versions = {}
+for (const p of projects) {
+  const dir = join(root, 'public', 'media', p.id)
+  if (!existsSync(dir)) continue
+  const hash = createHash('sha1')
+  for (const f of readdirSync(dir).sort()) hash.update(f).update(readFileSync(join(dir, f)))
+  versions[p.id] = hash.digest('hex').slice(0, 8)
+}
+writeFileSync(join(root, 'src', 'data', 'media-versions.json'), JSON.stringify(versions, null, 2) + '\n')
