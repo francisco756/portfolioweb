@@ -24,6 +24,8 @@ export function initTakeoffLinks(reduced: boolean) {
     const link = (e.target as Element).closest<HTMLAnchorElement>('a[data-takeoff]')
     if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
     e.preventDefault()
+    // A modal (All flights) sits in the top layer and would cover the takeoff panel
+    link.closest('dialog')?.close()
     const href = link.href
     if (reduced) {
       location.href = href

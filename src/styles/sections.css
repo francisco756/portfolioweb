@@ -414,3 +414,16 @@
     grid-row: 2;
   }
 }
+
+/* The board opens in the browser's top layer, above the custom cursor:
+   use the system cursor there and hide ours while it's open. */
+.has-custom-cursor .departures {
+  cursor: auto;
+}
+.has-custom-cursor .departures a,
+.has-custom-cursor .departures button {
+  cursor: pointer;
+}
+html:has(.departures[open]) :is(.cursor-dot, .cursor-ring, .cursor-label) {
+  opacity: 0;
+}
