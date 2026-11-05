@@ -20,7 +20,7 @@ export const cases: CaseStudy[] = [
     project: 'leadi',
     headline: 'An AI sales agent that works WhatsApp around the clock.',
     intro:
-      'Leadi is the agency’s own product: a CRM for businesses that sell over WhatsApp. I built it from scratch with Claude Code, from the data model to the AI agent that talks to customers.',
+      'Leadi is the agency’s own product: a CRM for businesses that sell over WhatsApp. I designed and built it from scratch, from the data model to the AI agent that talks to customers.',
     challenge:
       'Businesses that sell over WhatsApp lose leads after hours and whenever the team is busy. Leadi had to answer every conversation instantly, qualify the lead and keep following up, while plugging into the tools those businesses already use for stock, sales and ads.',
     did: [

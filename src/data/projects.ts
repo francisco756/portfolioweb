@@ -93,7 +93,7 @@ export const projects: Project[] = [
     platform: 'Next.js',
     industry: 'SaaS / CRM',
     summary:
-      'A CRM for businesses that sell over WhatsApp, built from scratch with Claude Code. An AI agent answers, qualifies and follows up with customers 24/7.',
+      'A CRM for businesses that sell over WhatsApp that I designed and built from scratch. An AI agent answers, qualifies and follows up with customers 24/7.',
     builtAtBeing: true,
     featured: true,
     caseStudy: 'leadi',
